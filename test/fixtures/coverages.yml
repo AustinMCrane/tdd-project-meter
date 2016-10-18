@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commit: MyString
+  message: MyString
+  model: 1
+  controller: 1
+  request: 1
+  routing: 1
+  integration: 1
+  other: 1
+
+two:
+  commit: MyString
+  message: MyString
+  model: 1
+  controller: 1
+  request: 1
+  routing: 1
+  integration: 1
+  other: 1

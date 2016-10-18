@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Projects</h1>
+
+
+    <% @projects.each do |project| %>
+      <div class="card">
+        <div>
+          <h2><%= project.title %></h2>
+        </div>
+        <div>
+          <h3>Test Coverage</h3>
+          <div id="<%= project.tag %>" class="ct-chart">
+          </div>
+          <div>
+            <h4>Lengend</h4>
+            <ul>
+              <li style="color:#f05b4f">Models</li>
+              <li style="color:#d70206">Controllers</li>
+            </ul>
+          </div>
+          <%= javascript_tag do %>
+            function lineChart(tag, color, data) {
+            Chartist.Line(tag,{
+            series: data,
+            fullWidth: true,
+            showArea: true
+            });
+            console.log(data)
+            }
+            lineChart('#<%= raw project.tag %>','#3333',[<%= raw project.models.to_json %>, <%= raw project.controllers.to_json %>, <%= raw project.requests.to_json %>])
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>
